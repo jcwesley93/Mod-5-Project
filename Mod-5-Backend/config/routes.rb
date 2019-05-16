@@ -5,8 +5,7 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :makeup_bags
       resources :shopping_lists
-      resources :users, only: [:create]
-      get '/profile', to: 'users#profile'
+      resources :users, only: [:create, :show]
       post '/signup', to: 'users#create'
     end
   end

@@ -1,6 +1,7 @@
 class Api::V1::UsersController < ApplicationController
 
-    def profile
+    def show
+        # byebug
         @user = User.find(params[:id])
         render json: @user
     end
@@ -11,7 +12,7 @@ class Api::V1::UsersController < ApplicationController
         if @user.save? 
             render json: :@user, status: :accepted
         else
-            render json: {error: 'failed to update user'}, status: :not_acceptable
+            render json: {errors: @user.errors.full_messages}, status: :not_acceptable
         end
     end
 
@@ -27,6 +28,6 @@ class Api::V1::UsersController < ApplicationController
     
     private
     def user_params
-        params.permit(:name, :email, :username, :avatar_image, :status, :address, :city, :state, :zipcode, :birthday, :favorite_beauty_brands)
+        params.require(:user).permit(:name, :email, :password, :username, :avatar_image, :status, :address, :city, :state, :zipcode, :birthday, :favorite_beauty_brands)
     end
 end

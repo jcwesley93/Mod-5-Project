@@ -1,5 +1,5 @@
 class ShoppingList < ApplicationRecord
-    has_many :products_shopping_lists
-    has_many :products, through: :products_shopping_lists
+    has_many :shopping_list_products
+    has_many :products, through: :shopping_list_products
     belongs_to :user
 end

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_16_143243) do
+ActiveRecord::Schema.define(version: 2019_05_16_210540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "makeup_bag_products", force: :cascade do |t|
+    t.integer "makeup_bag_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "makeup_bags", force: :cascade do |t|
     t.string "name"
@@ -21,13 +28,6 @@ ActiveRecord::Schema.define(version: 2019_05_16_143243) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-  end
-
-  create_table "makeup_bags_products", id: false, force: :cascade do |t|
-    t.bigint "makeup_bag_id", null: false
-    t.bigint "product_id", null: false
-    t.index ["makeup_bag_id", "product_id"], name: "index_makeup_bags_products_on_makeup_bag_id_and_product_id"
-    t.index ["product_id", "makeup_bag_id"], name: "index_makeup_bags_products_on_product_id_and_makeup_bag_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 2019_05_16_143243) do
     t.boolean "dont_rebuy", default: false
   end
 
-  create_table "products_shopping_lists", id: false, force: :cascade do |t|
-    t.bigint "shopping_list_id", null: false
-    t.bigint "product_id", null: false
-    t.index ["product_id", "shopping_list_id"], name: "product_shopping_list_index"
-    t.index ["shopping_list_id", "product_id"], name: "shopping_list_product_index"
+  create_table "shopping_list_products", force: :cascade do |t|
+    t.integer "shopping_list_id"
+    t.integer "product_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shopping_lists", force: :cascade do |t|

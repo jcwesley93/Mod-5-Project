@@ -1,25 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Home from './Components/Home'
+import Login from "./Components/Login"
+import Signup from "./Components/Signup"
+
+import { Route, Switch } from 'react-router-dom'
+
+// home leads to home 
+//login redirects the profile page once auth is done. 
+//signup leads to signup form, then redirect to profile page once create is valid. 
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  return (<div className="App">
+  <Switch> 
+    <Route exact path="/" component={Home} />
+    <Route exact path="/home" component={Home} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/signup" component={Signup} />
+  </Switch>
+  </div>
   );
 }
 

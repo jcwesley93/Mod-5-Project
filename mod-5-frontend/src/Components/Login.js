@@ -1,9 +1,47 @@
 import React from 'react'
 
 class Login extends React.Component {
+
+    state={
+        username: "", 
+        password: ""
+    }
+
+    handleOnChange = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        console.log(this.state)
+    }
+
+    handleSubmitForm = (event) => {
+        event.preventDefault()
+        fetch('http://localhost:3000/api/v1/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          user: {
+            username: this.state.username,
+            password: this.state.password
+          }
+        })
+      })
+      .then(r => r.json())
+      .then(res => localStorage.setItem("token", res.jwt))
+    }
     render(){
-        return(
-            <div> You already now what this is. </div>
+        return(<div> 
+            <form className="login" onSubmit={this.handleSubmitForm}>
+                <label> Username </label>
+                <input type="text" name= "username" onChange={this.handleOnChange} value={this.state.username} />
+                <label> Password </label>
+                <input type="password" name= "password" onChange={this.handleOnChange} value={this.state.password} />
+                <input type="submit" value="SUBMIT" />
+            </form>
+        </div>
         )
     }
 }

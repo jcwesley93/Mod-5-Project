@@ -5,8 +5,11 @@ Rails.application.routes.draw do
     namespace :v1 do 
       resources :makeup_bags
       resources :shopping_lists
-      resources :users
       resources :products
+      resources :users
+      resources :auth, only: [:create]
+
+      post '/login', to: 'auth#create'
     end
   end
 end

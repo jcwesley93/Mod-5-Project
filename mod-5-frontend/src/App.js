@@ -12,6 +12,8 @@ import { Route, Switch } from 'react-router-dom'
 
 function App() {
   return (<div className="App">
+
+  {/* Routes for the highest level of the app */}
   <Switch> 
     <Route exact path="/" component={Home} />
     <Route exact path="/home" component={Home} />

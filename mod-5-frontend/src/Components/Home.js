@@ -1,11 +1,19 @@
-import React from 'react'; 
+import React from 'react';
+import { connect } from 'react-redux'
 
 class Home extends React.Component {
     render(){
         return(
-            <div> This is another test</div>
+            <div>{this.props.info.name}</div>
         )
     }
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  console.log(state)
+  return { 
+    info: state
+  }
+}
+
+export default connect(mapStateToProps)(Home)

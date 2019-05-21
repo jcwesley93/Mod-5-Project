@@ -36,45 +36,45 @@ shoppinglistfour = ShoppingList.create(name: "Shopping List Four", description: 
 
 #### Products #### 
 
-productone = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productone = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Face")
 
-producttwo = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+producttwo = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Eye")
 
-productthree = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productthree = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Lip")
 
-productfour = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productfour = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Cheek")
 
-productfive = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productfive = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Lip")
 
-productsix = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productsix = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Face")
 
-productseven = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productseven = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Eye")
 
-producteight = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+producteight = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Cheek")
 
-productnine = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productnine = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Lip")
 
-productten = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productten = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Face")
 
-producteleven = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+producteleven = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Eye")
 
-producttwelve = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+producttwelve = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Cheek")
 
-productthirteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productthirteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Lip")
 
-productfourteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productfourteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Face")
 
-productfifteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productfifteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Eye")
 
-productsixteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productsixteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Lip")
 
-productseventeen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productseventeen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Cheek")
 
-producteighteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+producteighteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Face")
 
-productnineteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+productnineteen = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Eye")
 
-producttwenty = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, float: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean)
+producttwenty = Product.create(name: Faker::Cannabis.strain, description: Faker::Lorem.sentence(5), brand: Faker::Lorem.word, price: rand(1..40), sold_at: Faker::Lorem.word, quantity: rand(1..5), need_to_rebuy: Faker::Boolean.boolean, is_favorite: Faker::Boolean.boolean, dont_rebuy: Faker::Boolean.boolean, category: "Cheek")
 
 
 #### MAKEUP BAGS & PRODUCTS JOIN TABLE ####

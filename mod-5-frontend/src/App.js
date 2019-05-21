@@ -3,15 +3,19 @@ import React from 'react';
 import Home from './Components/Home'
 import Login from "./Components/Login"
 import Signup from "./Components/Signup"
+import ProductsContainer from "./Containers/ProductsContainer"
+import Dashboard from './Components/Dashboard'
 
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, Link } from 'react-router-dom'
 
-// home leads to home 
-//login redirects the profile page once auth is done. 
-//signup leads to signup form, then redirect to profile page once create is valid. 
 
 function App() {
   return (<div className="App">
+  <h1> Mod 5 Project </h1>
+  <Link to={'/home'}> HOME </Link>
+  <Link to={'/login'}> LOGIN </Link>
+  <Link to={'/signup'}> SIGNUP </Link>
+  <Link to={'/products'}> VIEW ALL PRODUCTS </Link>
 
   {/* Routes for the highest level of the app */}
   <Switch> 
@@ -19,6 +23,8 @@ function App() {
     <Route exact path="/home" component={Home} />
     <Route exact path="/login" component={Login} />
     <Route exact path="/signup" component={Signup} />
+    <Route exact path="/products" component={ProductsContainer} />
+    <Route exact path="/dashboard" component={Dashboard}/>
   </Switch>
   </div>
   );

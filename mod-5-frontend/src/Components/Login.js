@@ -4,7 +4,8 @@ class Login extends React.Component {
 
     state={
         username: "", 
-        password: ""
+        password: "", 
+        currentUser:{}
     }
 
     handleOnChange = (e) => {
@@ -16,7 +17,7 @@ class Login extends React.Component {
 
     handleSubmitForm = (event) => {
         event.preventDefault()
-        fetch('http://localhost:3000/api/v1/login', {
+        fetch('http://localhost:3005/api/v1/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -30,8 +31,10 @@ class Login extends React.Component {
         })
       })
       .then(r => r.json())
-      .then(res => localStorage.setItem("token", res.jwt))
+      .then(res => localStorage.setItem("token", res.jwt));
+      this.props.history.push("/dashboard")
     }
+
     render(){
         return(<div> 
             <form className="login" onSubmit={this.handleSubmitForm}>

@@ -25,12 +25,32 @@ class ProductsContainer extends React.Component{
     })
     console.log(this.state.productDisplayCategory)
   }
+
+  handleAddToMakeupBag = (selectedProduct, currentUser) => {
+    let selectedMakeupBag = currentUser.makeup_bags[0].id
+    console.log(selectedMakeupBag);  
+    console.log(selectedProduct.id);
+
+    fetch("http://localhost:3005/api/v1/makeup_bag_products",{
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+          makeup_bag_id: selectedMakeupBag, 
+          product_id: selectedProduct.id
+      })
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+  }
   
   render(){
     return(<div>
-      <ProductCard />
+      <ProductCard/>
       <ProductFilter handleCategoryChange={this.handleCategoryChange} />
-      <ProductsDisplay category={this.state.productDisplayCategory} products={this.props.products} />
+      <ProductsDisplay category={this.state.productDisplayCategory} products={this.props.products} handleAddToMakeupBag={this.handleAddToMakeupBag} currentUser={this.props.currentUser} />
       </div>
     )
   }
@@ -38,7 +58,8 @@ class ProductsContainer extends React.Component{
 
 const mapStateToProps = (state) => {
   return{
-    products: state.products
+    products: state.products, 
+    currentUser: state.currentUser
   }
 }
 

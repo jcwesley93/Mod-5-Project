@@ -1,18 +1,19 @@
 import React from 'react'
 
+import { connect } from 'react-redux'
+import { setCurrentUser } from "../Redux/actions"
+
 class Login extends React.Component {
 
     state={
         username: "", 
         password: "", 
-        currentUser:{}
     }
 
     handleOnChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log(this.state)
     }
 
     handleSubmitForm = (event) => {
@@ -31,7 +32,9 @@ class Login extends React.Component {
         })
       })
       .then(r => r.json())
-      .then(res => localStorage.setItem("token", res.jwt));
+      .then(res =>{
+        localStorage.setItem("token", res.jwt);
+        this.props.setCurrentUser(res.user)});
       this.props.history.push("/dashboard")
     }
 
@@ -49,4 +52,10 @@ class Login extends React.Component {
     }
 }
 
-export default Login
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    setCurrentUser: (userObject) => dispatch(setCurrentUser(userObject))
+  }
+}
+export default connect(null, mapDispatchToProps)(Login)

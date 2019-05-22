@@ -18,7 +18,7 @@ let store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window._
 ReactDOM.render(
  <BrowserRouter>
     <Provider store={store}> 
-        <App />
+        <App key="App" />
     </Provider>
 </BrowserRouter>, document.getElementById('root'));
 

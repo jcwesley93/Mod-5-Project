@@ -4,5 +4,6 @@ class User < ApplicationRecord
     validates :email, uniqueness: true
     has_many :shopping_lists
     has_many :makeup_bags
-
+    has_many :products, through: :makeup_bags
+    has_many :products, through: :shopping_lists
 end

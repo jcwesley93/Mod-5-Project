@@ -1,0 +1,1 @@
+export const fetchProductData = (productsObect) => ({type: 'FETCH_PRODUCT_DATA', payload: productsObect})

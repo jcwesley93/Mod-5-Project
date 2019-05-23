@@ -26,11 +26,9 @@ class ProductsContainer extends React.Component{
     console.log(this.state.productDisplayCategory)
   }
 
+  
   handleAddToMakeupBag = (selectedProduct, currentUser) => {
     let selectedMakeupBag = currentUser.makeup_bags[0].id
-    console.log(selectedMakeupBag);  
-    console.log(selectedProduct.id);
-
     fetch("http://localhost:3005/api/v1/makeup_bag_products",{
       method: 'POST', 
       headers: {
@@ -44,13 +42,40 @@ class ProductsContainer extends React.Component{
     })
     .then(res => res.json())
     .then(res => console.log(res))
+     //This should add it to the correct makeup bag in the state.
   }
+  
+
+  //This is not recoginizing the shopping bag id. 
+  // handleAddToShoppingList = (selectedProduct, currentUser) => {
+  //   debugger
+  //   let selectedShoppingList = currentUser.shopping_lists[0].id
+
+  //   console.log(selectedProduct, selectedShoppingList)
+  //   fetch("http://localhost:3005/api/v1/shopping_list_products",{
+  //     method: 'POST', 
+  //     headers: {
+  //       'Content-Type': 'application/json', 
+  //       'Accept': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //         makeup_bag_id: 1, 
+  //         product_id: selectedProduct.id
+  //     })
+  //   })
+  //   .then(res => res.json())
+  //   .then(res => console.log(res))
+  // }
   
   render(){
     return(<div>
       <ProductCard/>
       <ProductFilter handleCategoryChange={this.handleCategoryChange} />
-      <ProductsDisplay category={this.state.productDisplayCategory} products={this.props.products} handleAddToMakeupBag={this.handleAddToMakeupBag} currentUser={this.props.currentUser} />
+      <ProductsDisplay category={this.state.productDisplayCategory}
+       products={this.props.products} 
+       handleAddToMakeupBag={this.handleAddToMakeupBag} 
+       handleAddToShoppingList={this.handleAddToShoppingList}
+       currentUser={this.props.currentUser} />
       </div>
     )
   }

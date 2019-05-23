@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { setCurrentUser } from "../Redux/actions"
+import { setCurrentUser, setMakeupBags, setShoppingLists} from "../Redux/actions"
+
 
 class Login extends React.Component {
 
@@ -34,8 +35,11 @@ class Login extends React.Component {
       .then(r => r.json())
       .then(res =>{
         localStorage.setItem("token", res.jwt);
-        this.props.setCurrentUser(res.user)});
-      this.props.history.push("/dashboard")
+        this.props.setCurrentUser(res.user);
+        this.props.setMakeupBags(res.user.makeup_bags);
+        this.props.setShoppingLists(res.user.shopping_lists);
+      });
+        this.props.history.push("/dashboard")
     }
 
     render(){
@@ -55,7 +59,9 @@ class Login extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    setCurrentUser: (userObject) => dispatch(setCurrentUser(userObject))
+    setCurrentUser: (userObject) => dispatch(setCurrentUser(userObject)), 
+    setMakeupBags: (userMakeupBagObject) => dispatch(setMakeupBags(userMakeupBagObject)), 
+    setShoppingLists: (userShoppingListObject) => dispatch(setShoppingLists(userShoppingListObject))
   }
 }
 export default connect(null, mapDispatchToProps)(Login)

@@ -16,6 +16,7 @@ class ProductsDisplay extends React.Component{
                description={prod.description}/>
                <button value="makeupBag" onClick={() => this.props.handleAddToMakeupBag(prod, this.props.currentUser)}>Add To Makeup Bag</button>
              </Columns.Column>
+             {/* <button value="shoppingList" onClick={() => this.props.handleAddToShoppingList(prod, this.props.currentUser)}>Add To Shopping List</button> */}
           </div> 
         )}
         </Columns>

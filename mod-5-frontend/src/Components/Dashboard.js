@@ -1,11 +1,36 @@
 import React from 'react'
+import ShoppingListView from "./ShoppingListView"
+import MakeupBagView from "./MakeupBagView"
 
-import { connect } from 'react-redux'
+
+import { connect} from 'react-redux'
+import { setSelectedShoppingList, setSelectedMakeupBag } from '../Redux/actions'
+import { Route, Switch, Link } from 'react-router-dom'
+
 
 class Dashboard extends React.Component{
 
+  handleSetSelectedShoppingList = (event, selectedShoppingList) => {
+    event.preventDefault();
+     this.props.dispatch(setSelectedShoppingList(selectedShoppingList));
+     this.props.history.push('/shopping_list');
+    }
+
+    handleSetSelectedMakeupBag = (event, selectedMakeupBag) => {
+      event.preventDefault(); 
+      this.props.dispatch(setSelectedMakeupBag(selectedMakeupBag));
+      this.props.history.push('/makeup_bag')
+    }
+
   render(){ 
-    return(<div> 
+    return( 
+    <div>
+    <Switch> 
+      <Route exact path="/shopping_list" component={ShoppingListView} />
+      <Route exact path="makeup_bag" component={MakeupBagView} />
+    </Switch>
+    
+    <div> 
       <h1>{this.props.currentUser.name}</h1>
       <img src={this.props.currentUser.avatar_img} alt={this.props.currentUser.name} />
       <h3>{this.props.currentUser.status} </h3>
@@ -13,18 +38,20 @@ class Dashboard extends React.Component{
         <p>{this.props.currentUser.email} </p>
         <p>{this.props.currentUser.address}, {this.props.currentUser.city}, {this.props.currentUser.state} {this.props.currentUser.zipcode}</p>
       </div>
-      <div> 
-      <h2> Shopping Lists </h2>
+    <div> 
+    <h2> Shopping Lists </h2>
       <ul> 
-        {this.props.currentUser.shopping_lists ? this.props.currentUser.shopping_lists.map(list => <li>{list.name} <br/> {list.description} </li>) : <p> Add a Shopping List </p>}
+      {/* the Link tag requires a 'to'. What is a better way to do this?  */}
+        {this.props.shoppingLists ? this.props.shoppingLists.map(list => <li> <Link to="/shopping_list" onClick={(event) => this.handleSetSelectedShoppingList(event, list)}>{list.name}</Link> <br/> {list.description} </li>) : <p> Add a Shopping List </p>}
       </ul>
       </div>
       <div> 
       <h2> Makeup Bags </h2>
       <ul> 
-        {this.props.currentUser.makeup_bags ? this.props.currentUser.makeup_bags.map(list => <li>{list.name} <br/> {list.description} </li>) : <p> Add a Makeup Bag </p>}
+        {this.props.makeupBags ? this.props.makeupBags.map(list => <li> <Link to="/makeup_bag" onClick={(event) => this.handleSetSelectedMakeupBag(event, list)}>{list.name}</Link> <br/> {list.description} </li>) : <p> Add a Makeup Bag </p>}
       </ul>
-      </div>
+    </div>
+    </div>
     </div>
     )
   }
@@ -32,8 +59,20 @@ class Dashboard extends React.Component{
 
 const mapStateToProps = (state) => {
   return{
-    currentUser: state.currentUser
+    currentUser: state.currentUser, 
+    makeupBags: state.makeupBags, 
+    shoppingLists: state.shoppingLists
   }
 }
 
 export default connect(mapStateToProps)(Dashboard)
+
+/* What I did today(5/23)
+- added onClick functions to the lists that will direct to the individual show page.
+
+What is next
+-develop the individual view pages. 
+-refactor code
+-finish auth
+-web scraping 
+*/

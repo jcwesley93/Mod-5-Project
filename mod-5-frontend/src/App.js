@@ -5,6 +5,8 @@ import Login from "./Components/Login"
 import Signup from "./Components/Signup"
 import ProductsContainer from "./Containers/ProductsContainer"
 import Dashboard from './Components/Dashboard'
+import ShoppingListView from './Components/ShoppingListView'
+import MakeupBagView from './Components/MakeupBagView'
 
 
 import { Route, Switch, Link } from 'react-router-dom'
@@ -27,6 +29,8 @@ function App() {
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/products" component={ProductsContainer} />
     <Route exact path="/dashboard" component={Dashboard}/>
+    <Route exact path="/shopping_list" component={ShoppingListView} />
+    <Route exact path="makeup_bag" component={MakeupBagView} />
   </Switch>
   </div>
   );

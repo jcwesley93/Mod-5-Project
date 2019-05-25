@@ -1,6 +1,7 @@
 class Api::V1::ShoppingListsController < ApplicationController
 
     before_action :find_shopping_list, only: [:show, :update, :delete]
+    skip_before_action :authorized
 
     def index 
         @shoppinglists = ShoppingList.all

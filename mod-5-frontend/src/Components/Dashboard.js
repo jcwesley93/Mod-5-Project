@@ -1,11 +1,8 @@
 import React from 'react'
-import ShoppingListView from "./ShoppingListView"
-import MakeupBagView from "./MakeupBagView"
-
 
 import { connect} from 'react-redux'
 import { setSelectedShoppingList, setSelectedMakeupBag } from '../Redux/actions'
-import { Route, Switch, Link } from 'react-router-dom'
+import {  Link } from 'react-router-dom'
 
 
 class Dashboard extends React.Component{
@@ -25,11 +22,6 @@ class Dashboard extends React.Component{
   render(){ 
     return( 
     <div>
-    <Switch> 
-      <Route exact path="/shopping_list" component={ShoppingListView} />
-      <Route exact path="makeup_bag" component={MakeupBagView} />
-    </Switch>
-    
     <div> 
       <h1>{this.props.currentUser.name}</h1>
       <img src={this.props.currentUser.avatar_img} alt={this.props.currentUser.name} />

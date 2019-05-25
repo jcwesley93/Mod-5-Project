@@ -1,33 +1,30 @@
 import React from 'react'
 import ProductCard from './ProductCard';
 
-import { Columns } from 'react-bulma-components'
-
 class ProductsDisplay extends React.Component{
   render(){
     if(this.props.category === "All"){
       return(<div>
-        <Columns>
         {this.props.products.map(prod => 
            <div>
-             <Columns.Column size="one-quarter">
              <ProductCard name={prod.name}
                image={prod.image}
                description={prod.description}/>
                <button value="makeupBag" onClick={() => this.props.handleAddToMakeupBag(prod, this.props.currentUser)}>Add To Makeup Bag</button>
-             </Columns.Column>
              {/* <button value="shoppingList" onClick={() => this.props.handleAddToShoppingList(prod, this.props.currentUser)}>Add To Shopping List</button> */}
           </div> 
         )}
-        </Columns>
       </div>
       )
     } else{
       return(<div> 
-        {this.props.products.filter(prod => prod.category === this.props.category).map(prod => <ProductCard name={prod.name}
-        image={prod.image}
-        description={prod.description}
-        />)}
+        {this.props.products.filter(prod => prod.category === this.props.category).map(prod =>
+        <div> 
+          <ProductCard name={prod.name}
+          image={prod.image}
+          description={prod.description} />
+          <button value="makeupBag" onClick={() => this.props.handleAddToMakeupBag(prod, this.props.currentUser)}>Add To Makeup Bag</button>
+        </div>)}
       </div>
       )
      }

@@ -1,6 +1,9 @@
 class Api::V1::AuthController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
+    # This needs to send back the JSON Serialized user with the nested associations. See the show method on the user controller for examples.
+    #For now, I will create a second post request using id of the particular list. What is a better way to do this? 
+     
     def create 
         @user = User.find_by(username: auth_params[:username])
         if @user && @user.authenticate(auth_params[:password])
@@ -11,9 +14,7 @@ class Api::V1::AuthController < ApplicationController
         end
     end
 
-    #Once the token is created (above) 
-    #save the token in local storage on the front end
-    # send token with each fetch request made by user in the authorization header. 
+ 
 
 
 

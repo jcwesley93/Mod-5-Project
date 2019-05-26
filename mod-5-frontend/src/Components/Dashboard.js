@@ -19,6 +19,11 @@ class Dashboard extends React.Component{
       this.props.history.push('/makeup_bag')
     }
 
+    handleSendToNewForm = (event) => {
+      event.preventDefault();
+      this.props.history.push('/new_shopping_list')
+    }
+
   render(){ 
     return( 
     <div>
@@ -32,15 +37,19 @@ class Dashboard extends React.Component{
       </div>
     <div> 
     <h2> Shopping Lists </h2>
+    <button onClick={(event) => this.handleSendToNewForm(event)}> Add A Shopping List </button>
       <ul> 
       {/* the Link tag requires a 'to'. What is a better way to do this?  */}
-        {this.props.shoppingLists ? this.props.shoppingLists.map(list => <li> <Link to="/shopping_list" onClick={(event) => this.handleSetSelectedShoppingList(event, list)}>{list.name}</Link> <br/> {list.description} </li>) : <p> Add a Shopping List </p>}
+        {this.props.shoppingLists ? 
+        this.props.shoppingLists.map(list => <li> <Link to="/shopping_list" onClick={(event) => this.handleSetSelectedShoppingList(event, list)}>{list.name}</Link> <br/> {list.description} </li>): 
+        <p> It looks like there are no shopping lists! Let's add one! </p>}
       </ul>
       </div>
       <div> 
       <h2> Makeup Bags </h2>
+      {/* <button onClick={(event) => this.handleSendToNewForm(event)}> Add A Makeup Bag </button> */}
       <ul> 
-        {this.props.makeupBags ? this.props.makeupBags.map(list => <li> <Link to="/makeup_bag" onClick={(event) => this.handleSetSelectedMakeupBag(event, list)}>{list.name}</Link> <br/> {list.description} </li>) : <p> Add a Makeup Bag </p>}
+        {this.props.makeupBags ? this.props.makeupBags.map(list => <li> <Link to="/makeup_bag" onClick={(event) => this.handleSetSelectedMakeupBag(event, list)}>{list.name}</Link> <br/> {list.description} </li>) : <p> It Looks like there are no shopping lists! Let's add one!</p>}
       </ul>
     </div>
     </div>

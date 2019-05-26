@@ -7,9 +7,10 @@ import ProductsContainer from "./Containers/ProductsContainer"
 import Dashboard from './Components/Dashboard'
 import ShoppingListView from './Components/ShoppingListView'
 import MakeupBagView from './Components/MakeupBagView'
-
+import NewShoppingListForm from './Components/ShoppingList/NewShoppingListForm';
 
 import { Route, Switch, Link } from 'react-router-dom'
+
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
   <Link to={'/products'}> VIEW ALL PRODUCTS </Link>
   <Link to={'/login'}> LOGIN </Link>
   {/* <Link to={'/signup'}> SIGNUP </Link> */}
+  <Link to={'/dashboard'}> Dashboard </Link>
   
 
   {/* Routes for the highest level of the app */}
@@ -30,7 +32,8 @@ function App() {
     <Route exact path="/products" component={ProductsContainer} />
     <Route exact path="/dashboard" component={Dashboard}/>
     <Route exact path="/shopping_list" component={ShoppingListView} />
-    <Route exact path="makeup_bag" component={MakeupBagView} />
+    <Route exact path="/makeup_bag" component={MakeupBagView} />
+    <Route exact path="/new_shopping_list" component={NewShoppingListForm} />
   </Switch>
   </div>
   );

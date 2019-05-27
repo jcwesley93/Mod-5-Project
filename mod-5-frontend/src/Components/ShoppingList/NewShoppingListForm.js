@@ -7,7 +7,6 @@ class NewShoppingListForm extends React.Component{
   state={
     name:"", 
     description:"", 
-    user_id: null
   }
 
   handleInputChange = (event) => {
@@ -16,9 +15,17 @@ class NewShoppingListForm extends React.Component{
     })
   }
 
+  handleFormSubmission = (event) => {
+    event.preventDefault()
+    console.log(this.state)
+    console.log(this.props.currentUser.id)
+
+    
+  }
+
   render(){
     return(<div>
-      <form>
+      <form onSubmit={this.handleFormSubmission}>
         <label> Shopping List Name: </label>
         <input onChange={this.handleInputChange} type="text" name="name"/>
         <label> Shopping List Description: </label>

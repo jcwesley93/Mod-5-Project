@@ -35,6 +35,12 @@ const reducer = (state = initialState, action) => {
         return{...state, selectedMakeupBag: action.payload}
       }
 
+      case('UPDATE_SHOPPING_LISTS'):{
+        console.log(state.shoppingLists)
+        return{...state,
+           shoppingLists: state.shoppingLists.concat(action.payload)}
+      }
+
       default:
           return state
     }

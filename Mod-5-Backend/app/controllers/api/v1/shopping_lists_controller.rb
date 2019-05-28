@@ -44,7 +44,7 @@ class Api::V1::ShoppingListsController < ApplicationController
     end
 
     def shopping_list_params
-        params.permit(:name, :description)
+        params.permit(:name, :description, :user_id)
     end
 
 

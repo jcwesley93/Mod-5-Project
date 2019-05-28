@@ -34,7 +34,6 @@ class Login extends React.Component {
       })
       .then(r => r.json())
       .then(res =>{
-        console.log(res);
         localStorage.setItem("token", res.jwt);
         this.props.setCurrentUser(res.user);
         this.props.setMakeupBags(res.user.makeup_bags);

@@ -1,6 +1,7 @@
 class Api::V1::MakeupBagsController < ApplicationController
 
     before_action :find_makeup_bag, only: [:update, :show, @delete]
+    skip_before_action :authorized
     
     
     def index 

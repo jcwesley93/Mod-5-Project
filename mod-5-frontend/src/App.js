@@ -6,7 +6,7 @@ import Signup from "./Components/Signup"
 import ProductsContainer from "./Containers/ProductsContainer"
 import Dashboard from './Components/Dashboard'
 import ShoppingListView from './Components/ShoppingList/ShoppingListView'
-import MakeupBagView from './Components/MakeupBagView'
+import MakeupBagView from './Components/MakeupBag/MakeupBagView'
 import NewShoppingListForm from './Components/ShoppingList/NewShoppingListForm';
 
 import { Route, Switch, Link } from 'react-router-dom'

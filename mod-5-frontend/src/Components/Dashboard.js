@@ -19,7 +19,7 @@ class Dashboard extends React.Component{
       this.props.history.push('/makeup_bag')
     }
 
-    handleSendToNewForm = (event) => {
+    handleSendToNewSLForm = (event) => {
       event.preventDefault();
       this.props.history.push('/new_shopping_list')
     }
@@ -37,7 +37,7 @@ class Dashboard extends React.Component{
       </div>
     <div> 
     <h2> Shopping Lists </h2>
-    <button onClick={(event) => this.handleSendToNewForm(event)}> Add A Shopping List </button>
+    <button onClick={(event) => this.handleSendToNewSLForm(event)}> Add A Shopping List </button>
       <ul> 
       {/* the Link tag requires a 'to'. What is a better way to do this?  */}
         {this.props.shoppingLists ? 

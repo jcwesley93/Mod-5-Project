@@ -37,7 +37,7 @@ class Api::V1::MakeupBagsController < ApplicationController
 
     private
     def makeupbag_params
-        params.permit(:name, :description)
+        params.permit(:name, :description, :user_id)
     end
 
     def find_makeup_bag

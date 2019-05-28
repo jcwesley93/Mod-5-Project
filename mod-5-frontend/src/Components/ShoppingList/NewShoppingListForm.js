@@ -6,8 +6,8 @@ import { updateShoppingLists } from "../../Redux/actions"
 class NewShoppingListForm extends React.Component{
 
   state={
-    name:"", 
-    description:"", 
+    name: "", 
+    description: ""
   }
 
   handleInputChange = (event) => {
@@ -18,9 +18,6 @@ class NewShoppingListForm extends React.Component{
 
   handleFormSubmission = (event) => {
     event.preventDefault()
-    console.log(this.state)
-    console.log(this.props.currentUser.id)
-
     fetch('http://localhost:3005/api/v1/shopping_lists', {
       method:'POST', 
       headers:{
@@ -42,9 +39,9 @@ class NewShoppingListForm extends React.Component{
     return(<div>
       <form onSubmit={this.handleFormSubmission}>
         <label> Shopping List Name: </label>
-        <input onChange={this.handleInputChange} type="text" name="name"/>
+        <input onChange={this.handleInputChange} type="text" name="name" placeholder="Shopping List Name"/>
         <label> Shopping List Description: </label>
-        <input onChange={this.handleInputChange} type="text" name="description"/>
+        <input onChange={this.handleInputChange} type="text" name="description" placeholder="Shopping List Description"/>
         <input type="submit" value="Submit" name="submit" />
       </form>
     </div>

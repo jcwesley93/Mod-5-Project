@@ -8,6 +8,7 @@ import Dashboard from './Components/Dashboard'
 import ShoppingListView from './Components/ShoppingList/ShoppingListView'
 import MakeupBagView from './Components/MakeupBag/MakeupBagView'
 import NewShoppingListForm from './Components/ShoppingList/NewShoppingListForm';
+import NewMakeupBagForm from "./Components/MakeupBag/NewMakeupBagForm"
 
 import { Route, Switch, Link } from 'react-router-dom'
 
@@ -23,7 +24,6 @@ function App() {
   <Link to={'/dashboard'}> Dashboard </Link>
   
 
-  {/* Routes for the highest level of the app */}
   <Switch> 
     <Route exact path="/" component={Home} />
     <Route exact path="/home" component={Home} />
@@ -34,6 +34,7 @@ function App() {
     <Route exact path="/shopping_list" component={ShoppingListView} />
     <Route exact path="/makeup_bag" component={MakeupBagView} />
     <Route exact path="/new_shopping_list" component={NewShoppingListForm} />
+    <Route exact path="/new_makeup_bag" component={NewMakeupBagForm}/>
   </Switch>
   </div>
   );

@@ -41,6 +41,11 @@ const reducer = (state = initialState, action) => {
            shoppingLists: state.shoppingLists.concat(action.payload)}
       }
 
+      case('UPDATE_MAKEUP_BAGS'): {
+        return{...state, 
+        makeupBags: state.makeupBags.concat(action.payload)}
+      }
+
       default:
           return state
     }

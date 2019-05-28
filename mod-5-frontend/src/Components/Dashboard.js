@@ -3,7 +3,7 @@ import React from 'react'
 import { connect} from 'react-redux'
 import { setSelectedShoppingList, setSelectedMakeupBag } from '../Redux/actions'
 import {  Link } from 'react-router-dom'
-import { EventEmitter } from 'events';
+
 
 
 class Dashboard extends React.Component{

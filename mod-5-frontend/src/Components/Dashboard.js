@@ -73,13 +73,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Dashboard)
-
-/* What I did today(5/23)
-- added onClick functions to the lists that will direct to the individual show page.
-
-What is next
--develop the individual view pages. 
--refactor code
--finish auth
--web scraping 
-*/

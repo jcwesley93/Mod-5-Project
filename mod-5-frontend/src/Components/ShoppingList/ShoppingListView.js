@@ -1,6 +1,6 @@
- import React from 'react'
+import React from 'react'
 
- import EditShoppingListForm from "./EditShoppingListForm"
+import EditShoppingListForm from "./EditShoppingListForm"
 
 import { connect } from 'react-redux'
 import {setSelectedShoppingList, removeShoppingList} from "../../Redux/actions"

@@ -47,25 +47,25 @@ class ProductsContainer extends React.Component{
   
 
   //This is not recoginizing the shopping bag id. 
-  // handleAddToShoppingList = (selectedProduct, currentUser) => {
-  //   debugger
-  //   let selectedShoppingList = currentUser.shopping_lists[0].id
+  handleAddToShoppingList = (selectedProduct, currentUser) => {
+    debugger
+    let selectedShoppingList = currentUser.shopping_lists[0].id
 
-  //   console.log(selectedProduct, selectedShoppingList)
-  //   fetch("http://localhost:3005/api/v1/shopping_list_products",{
-  //     method: 'POST', 
-  //     headers: {
-  //       'Content-Type': 'application/json', 
-  //       'Accept': 'application/json'
-  //     },
-  //     body: JSON.stringify({
-  //         makeup_bag_id: 1, 
-  //         product_id: selectedProduct.id
-  //     })
-  //   })
-  //   .then(res => res.json())
-  //   .then(res => console.log(res))
-  // }
+    console.log(selectedProduct, selectedShoppingList)
+    fetch("http://localhost:3005/api/v1/shopping_list_products",{
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+          makeup_bag_id: 1, 
+          product_id: selectedProduct.id
+      })
+    })
+    .then(res => res.json())
+    .then(res => console.log(res))
+  }
   
   render(){
     return(<div>

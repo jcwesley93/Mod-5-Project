@@ -3,6 +3,7 @@ import React from 'react'
 import { connect} from 'react-redux'
 import { setSelectedShoppingList, setSelectedMakeupBag } from '../Redux/actions'
 import {  Link } from 'react-router-dom'
+import { EventEmitter } from 'events';
 
 
 class Dashboard extends React.Component{
@@ -19,9 +20,14 @@ class Dashboard extends React.Component{
       this.props.history.push('/makeup_bag')
     }
 
-    handleSendToNewForm = (event) => {
+    handleSendToNewSLForm = (event) => {
       event.preventDefault();
       this.props.history.push('/new_shopping_list')
+    }
+    
+    handleSendToNewMBForm = (event) => {
+      event.preventDefault(); 
+      this.props.history.push('/new_makeup_bag')
     }
 
   render(){ 
@@ -37,7 +43,7 @@ class Dashboard extends React.Component{
       </div>
     <div> 
     <h2> Shopping Lists </h2>
-    <button onClick={(event) => this.handleSendToNewForm(event)}> Add A Shopping List </button>
+    <button onClick={(event) => this.handleSendToNewSLForm(event)}> Add A Shopping List </button>
       <ul> 
       {/* the Link tag requires a 'to'. What is a better way to do this?  */}
         {this.props.shoppingLists ? 
@@ -47,7 +53,7 @@ class Dashboard extends React.Component{
       </div>
       <div> 
       <h2> Makeup Bags </h2>
-      {/* <button onClick={(event) => this.handleSendToNewForm(event)}> Add A Makeup Bag </button> */}
+      <button onClick={(event) => this.handleSendToNewMBForm(event)}> Add A Makeup Bag </button>
       <ul> 
         {this.props.makeupBags ? this.props.makeupBags.map(list => <li> <Link to="/makeup_bag" onClick={(event) => this.handleSetSelectedMakeupBag(event, list)}>{list.name}</Link> <br/> {list.description} </li>) : <p> It Looks like there are no shopping lists! Let's add one!</p>}
       </ul>

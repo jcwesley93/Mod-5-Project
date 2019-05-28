@@ -11,3 +11,5 @@ export const setSelectedShoppingList = (selectedShoppingList) => ({type: 'SET_SE
 export const setSelectedMakeupBag = (selectedMakeupBag) => ({type: 'SET_SELECTED_MAKEUP_BAG', payload: selectedMakeupBag})
 
 export const updateShoppingLists = (newShoppingList) => ({type: 'UPDATE_SHOPPING_LISTS', payload: newShoppingList})
+
+export const updateMakeupBags = (newMakeupBag) => ({type: 'UPDATE_MAKEUP_BAGS', payload: newMakeupBag})

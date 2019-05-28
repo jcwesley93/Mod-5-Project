@@ -1,6 +1,7 @@
 class Api::V1::MakeupBagsController < ApplicationController
 
     before_action :find_makeup_bag, only: [:update, :show, @delete]
+    skip_before_action :authorized
     
     
     def index 
@@ -36,7 +37,7 @@ class Api::V1::MakeupBagsController < ApplicationController
 
     private
     def makeupbag_params
-        params.permit(:name, :description)
+        params.permit(:name, :description, :user_id)
     end
 
     def find_makeup_bag

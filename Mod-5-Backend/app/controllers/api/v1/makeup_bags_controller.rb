@@ -1,6 +1,6 @@
 class Api::V1::MakeupBagsController < ApplicationController
 
-    before_action :find_makeup_bag, only: [:update, :show, @delete]
+    before_action :find_makeup_bag, only: [:update, :show, :destroy]
     skip_before_action :authorized
     
     
@@ -31,8 +31,8 @@ class Api::V1::MakeupBagsController < ApplicationController
         end
     end
 
-    def delete 
-        #how do you do this one? 
+    def destroy
+      @makeupbag.destroy
     end
 
     private

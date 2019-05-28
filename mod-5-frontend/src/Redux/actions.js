@@ -13,3 +13,5 @@ export const setSelectedMakeupBag = (selectedMakeupBag) => ({type: 'SET_SELECTED
 export const updateShoppingLists = (newShoppingList) => ({type: 'UPDATE_SHOPPING_LISTS', payload: newShoppingList})
 
 export const updateMakeupBags = (newMakeupBag) => ({type: 'UPDATE_MAKEUP_BAGS', payload: newMakeupBag})
+
+export const removeShoppingList = (deletedShoppingList) => ({type: 'REMOVE_SHOPPING_LIST', payload: deletedShoppingList})

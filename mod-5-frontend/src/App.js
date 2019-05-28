@@ -5,7 +5,7 @@ import Login from "./Components/Login"
 import Signup from "./Components/Signup"
 import ProductsContainer from "./Containers/ProductsContainer"
 import Dashboard from './Components/Dashboard'
-import ShoppingListView from './Components/ShoppingListView'
+import ShoppingListView from './Components/ShoppingList/ShoppingListView'
 import MakeupBagView from './Components/MakeupBagView'
 import NewShoppingListForm from './Components/ShoppingList/NewShoppingListForm';
 

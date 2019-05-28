@@ -29,7 +29,7 @@ class Dashboard extends React.Component{
     <div>
     <div> 
       <h1>{this.props.currentUser.name}</h1>
-      <img src={this.props.currentUser.avatar_img} alt={this.props.currentUser.name} />
+      <img src={this.props.currentUser.avatar_image} alt={this.props.currentUser.name} />
       <h3>{this.props.currentUser.status} </h3>
       <div> 
         <p>{this.props.currentUser.email} </p>

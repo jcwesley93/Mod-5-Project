@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import {setSelectedShoppingList} from "../Redux/actions"
+import {setSelectedShoppingList} from "../../Redux/actions"
+import ProductCard from '../ProductCard';
 
 class ShoppingListView extends React.Component{
   
@@ -13,8 +14,11 @@ class ShoppingListView extends React.Component{
 
   render(){
     return(<div>
-      {this.props.selectedList.name}
-      {/* print out the products in tile form.  */}
+      <h1>{this.props.selectedList.name}</h1>
+      <br/>
+      <br/>
+      {/* this renders the list correctly, but doesn't show the message when the products array is empty. rework the conditional */}
+      {this.props.selectedList.products ? this.props.selectedList.products.map(list => <ProductCard name={list.name} image={list.image} />) : <p> There are no products on this list! </p>}
     </div>
     )
   }

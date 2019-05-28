@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
+import { updateShoppingLists } from "../../Redux/actions"
 
 class NewShoppingListForm extends React.Component{
 
@@ -20,7 +21,21 @@ class NewShoppingListForm extends React.Component{
     console.log(this.state)
     console.log(this.props.currentUser.id)
 
-    
+    fetch('http://localhost:3005/api/v1/shopping_lists', {
+      method:'POST', 
+      headers:{
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json'
+      }, 
+      body: JSON.stringify({
+        name: this.state.name,
+        description: this.state.description, 
+        user_id: this.props.currentUser.id
+      })
+    })
+    .then(res => res.json())
+    .then(res => this.props.updateShoppingLists(res))
+    this.props.history.push("/dashboard")
   }
 
   render(){
@@ -32,10 +47,6 @@ class NewShoppingListForm extends React.Component{
         <input onChange={this.handleInputChange} type="text" name="description"/>
         <input type="submit" value="Submit" name="submit" />
       </form>
-
-
-
-
     </div>
     )
   }
@@ -48,13 +59,8 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return{
+  return{ updateShoppingLists: (newShoppingList) => dispatch(updateShoppingLists(newShoppingList))
   }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NewShoppingListForm) 
 
-// set local state to control the form 
-//on submit, make a post request to the current user's account. 
-//use gloabl state to access current user & also add them to the shopping lists array. 
-
-//can you use .push when setting state? 

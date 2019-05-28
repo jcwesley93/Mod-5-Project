@@ -15,3 +15,5 @@ export const updateShoppingLists = (newShoppingList) => ({type: 'UPDATE_SHOPPING
 export const updateMakeupBags = (newMakeupBag) => ({type: 'UPDATE_MAKEUP_BAGS', payload: newMakeupBag})
 
 export const removeShoppingList = (deletedShoppingList) => ({type: 'REMOVE_SHOPPING_LIST', payload: deletedShoppingList})
+
+export const removeMakeupBag = (deletedMakeupBag) => ({type:'REMOVE_MAKEUP_BAG', payload: deletedMakeupBag})

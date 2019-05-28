@@ -48,11 +48,15 @@ const reducer = (state = initialState, action) => {
       case('REMOVE_SHOPPING_LIST'):{
         return{...state,
         shoppingLists: state.shoppingLists.filter(list => {
-          console.log(list !== action.payload)
-          console.log(list, action.payload)
           return list.id !== action.payload.id
-        }
-      )}
+        })}
+      }
+
+      case('REMOVE_MAKEUP_BAG'):{
+        return{...state, 
+        makeupBags: state.makeupBags.filter(list => {
+          return list.id !== action.payload.id
+        })}
       }
 
       default:

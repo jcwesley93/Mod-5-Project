@@ -21,7 +21,6 @@ class EditShoppingListForm extends React.Component{
     this.setState({
       clicked: !this.state.clicked
     })
-    console.log(this.state.clicked)
   }
 
   handleUpdateShoppingList = (event) => {

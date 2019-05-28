@@ -1,6 +1,6 @@
 class Api::V1::ShoppingListsController < ApplicationController
 
-    before_action :find_shopping_list, only: [:show, :update, :delete]
+    before_action :find_shopping_list, only: [:show, :update, :destroy]
     skip_before_action :authorized
 
     def index 
@@ -30,8 +30,9 @@ class Api::V1::ShoppingListsController < ApplicationController
         end
     end
 
-    def delete
-        #how do you do this? 
+    def destroy
+        @shoppinglist.destroy
+        render json: {message: "Successfuly deleted!"}
     end
 
 

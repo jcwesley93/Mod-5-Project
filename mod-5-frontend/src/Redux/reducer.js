@@ -36,7 +36,6 @@ const reducer = (state = initialState, action) => {
       }
 
       case('UPDATE_SHOPPING_LISTS'):{
-        console.log(state.shoppingLists)
         return{...state,
            shoppingLists: state.shoppingLists.concat(action.payload)}
       }
@@ -44,6 +43,16 @@ const reducer = (state = initialState, action) => {
       case('UPDATE_MAKEUP_BAGS'): {
         return{...state, 
         makeupBags: state.makeupBags.concat(action.payload)}
+      }
+
+      case('REMOVE_SHOPPING_LIST'):{
+        return{...state,
+        shoppingLists: state.shoppingLists.filter(list => {
+          console.log(list !== action.payload)
+          console.log(list, action.payload)
+          return list.id !== action.payload.id
+        }
+      )}
       }
 
       default:

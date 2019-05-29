@@ -22,6 +22,9 @@ function App() {
   <Link to={'/login'}> LOGIN </Link>
   {/* <Link to={'/signup'}> SIGNUP </Link> */}
   <Link to={'/dashboard'}> Dashboard </Link>
+  <br/>
+  <br/>
+  
   
 
   <Switch> 

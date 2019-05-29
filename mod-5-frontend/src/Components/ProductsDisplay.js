@@ -2,6 +2,8 @@ import React from 'react'
 import ProductCard from './ProductCard';
 
 class ProductsDisplay extends React.Component{
+
+
   render(){
     if(this.props.category === "All"){
       return(<div>
@@ -9,9 +11,8 @@ class ProductsDisplay extends React.Component{
            <div>
              <ProductCard name={prod.name}
                image={prod.image}
-               description={prod.description}/>
-               <button value="makeupBag" onClick={() => this.props.handleAddToMakeupBag(prod, this.props.currentUser)}>Add To Makeup Bag</button>
-             <button value="shoppingList" onClick={() => this.props.handleAddToShoppingList(prod, this.props.currentUser)}>Add To Shopping List</button>
+               description={prod.description}
+               id={prod.id}/>
           </div> 
         )}
       </div>
@@ -22,8 +23,8 @@ class ProductsDisplay extends React.Component{
         <div> 
           <ProductCard name={prod.name}
           image={prod.image}
-          description={prod.description} />
-          <button value="makeupBag" onClick={() => this.props.handleAddToMakeupBag(prod, this.props.currentUser)}>Add To Makeup Bag</button>
+          description={prod.description}
+          id={prod.id} />
         </div>)}
       </div>
       )
@@ -34,5 +35,6 @@ class ProductsDisplay extends React.Component{
  
 export default ProductsDisplay
 
-// if the category is all or an empty string, render all products. 
-//else, render the products whose category matches productDisplayCategory. 
+//on click, conditionally show the select menu and an add button. 
+//on add, send the post request to create a new instance in the join table 
+//this should also update the selected list by adding the product

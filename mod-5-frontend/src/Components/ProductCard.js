@@ -1,6 +1,7 @@
 import React from 'react'
 
-import { connect } from'react-redux'
+import { connect } from 'react-redux'
+import { Card, Image, Button } from 'semantic-ui-react'
 
 
 
@@ -15,7 +16,7 @@ class ProductCard extends React.Component{
   handleMBOnClick = (event) =>{
     event.preventDefault(); 
     this.setState({
-      makeupBagClicked: !this.state.clicked
+      makeupBagClicked: !this.state.makeupBagclicked
     })
     console.log(this.props.id)
   }
@@ -27,12 +28,7 @@ class ProductCard extends React.Component{
     })
   }
 
-  handleOnChange = (event) => {
-    this.setState({
-      selectedBagID: event.target.value
-    })
-    console.log(this.state.selectedBagID)
-  }
+  
 
   handleAddToMakeupBag = (event) => {
     console.log(this.state.selectedBagID, this.props.id)
@@ -50,16 +46,30 @@ class ProductCard extends React.Component{
     })
     .then(res => res.json())
     .then(console.log)
+    this.setState({
+      makeupBagClicked: !this.state.makeupBagClicked
+      
+    })
   }//need to add it to the global state
 
-  
-
-  render(){
-  return(<div> 
-    <p>{this.props.name}</p>
-    <img src={this.props.image} alt={this.props.name}/>
-    <p>{this.props.description}</p>
-    
+  handleOnChange = (event) => {
+    this.setState({
+      selectedBagID: event.target.value
+    })
+    console.log(this.state.selectedBagID)
+  }
+render(){
+let cardStyle = {
+   margin:'15px'
+ }
+  return(
+   <div>
+    <Card style={cardStyle}>
+    <Image src={this.props.image} alt={this.props.name} wrapped ui={false}/>
+    <Card.Content>
+    <Card.Header> {this.props.name} </Card.Header>
+    <Card.Meta>{this.props.category}</Card.Meta>
+    </Card.Content>
     {this.state.makeupBagClicked ? 
     <div>
       <select value={this.state.selectedBagID} onChange={this.handleOnChange}>
@@ -67,19 +77,18 @@ class ProductCard extends React.Component{
         {this.props.makeupBags.map(list => <option value={list.id}>{list.name}</option> )}
       </select>
       <br/>
-      <button onClick={this.handleAddToMakeupBag}> Add It!</button>
+      <Button onClick={this.handleAddToMakeupBag}> Add It!</Button>
       </div>
-      : <button value='Makeup Bag' onClick={(event) => this.handleMBOnClick(event) }> Add to Makeup Bag </button>}
+      : <Button value='Makeup Bag' onClick={(event) => this.handleMBOnClick(event) }> Add to Makeup Bag </Button>}
 
 
-
-
-
-
-    {this.state.shoppingListClicked ? <p> render the dropdown </p> : <button value='Shopping List' onClick={(event) => this.handleSLOnClick(event) }> Add to Shopping List </button>}
+    {/* {this.state.shoppingListClicked ? <p> render the dropdown </p> : <button value='Shopping List' onClick={(event) => this.handleSLOnClick(event) }> Add to Shopping List </button>} */}
+  
+  </Card>
   </div>
   )
-  }
+}
+
 }
 
 const mapStateToProps = (state) => {

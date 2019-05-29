@@ -70,6 +70,8 @@ class ProductsContainer extends React.Component{
   render(){
     return(<div>
       <ProductFilter handleCategoryChange={this.handleCategoryChange} />
+      <br/>
+      <br/>
       <ProductsDisplay category={this.state.productDisplayCategory}
        products={this.props.products} 
        handleAddToMakeupBag={this.handleAddToMakeupBag} 

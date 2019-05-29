@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductCard from './ProductCard';
+import { Grid } from 'semantic-ui-react'
 
 class ProductsDisplay extends React.Component{
 
@@ -7,25 +8,31 @@ class ProductsDisplay extends React.Component{
   render(){
     if(this.props.category === "All"){
       return(<div>
+        <Grid relaxed>
         {this.props.products.map(prod => 
            <div>
-             <ProductCard name={prod.name}
+               <ProductCard name={prod.name}
                image={prod.image}
                description={prod.description}
-               id={prod.id}/>
+               id={prod.id}
+               category={prod.category}/>
           </div> 
         )}
+        </Grid>
       </div>
       )
     } else{
       return(<div> 
+        <Grid>
         {this.props.products.filter(prod => prod.category === this.props.category).map(prod =>
         <div> 
           <ProductCard name={prod.name}
           image={prod.image}
           description={prod.description}
-          id={prod.id} />
+          id={prod.id}
+          category={prod.category} />
         </div>)}
+        </Grid>
       </div>
       )
      }

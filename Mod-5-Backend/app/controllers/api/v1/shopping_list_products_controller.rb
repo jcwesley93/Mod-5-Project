@@ -1,8 +1,6 @@
 class Api::V1::ShoppingListProductsController < ApplicationController
 
   
- 
-
   def index 
     @shoppinglistproducts = ShoppingListProduct.all 
     render json: @shoppinglistproducts

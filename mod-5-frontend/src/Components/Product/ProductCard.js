@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { Card, Image, Button } from 'semantic-ui-react'
+import { Card, Image, Button, Modal, Header } from 'semantic-ui-react'
 
 
 
@@ -96,10 +96,22 @@ render(){
 let cardStyle = {
    margin:'15px'
  }
+ console.log(this.props)
   return(
    <div>
     <Card style={cardStyle}>
-    <Image src={this.props.image} alt={this.props.name} wrapped ui={false}/>
+    <Modal trigger={<Image src={this.props.image} alt={this.props.name} wrapped ui={false}/>}>
+      <Modal.Header>{this.props.name}</Modal.Header>
+      <Modal.Content image ><Image wrapped size="large" src={this.props.image}/>
+      <Modal.Description>
+        <Header> {this.props.brand}</Header>
+        <p>{this.props.description}</p>
+        <p>Sold At: {this.props.sold_at.toUpperCase()}</p>
+        <p>${this.props.price}</p>
+        <p>Category: {this.props.category}</p>
+      </Modal.Description>
+    </Modal.Content>
+    </Modal>
     <Card.Content>
     <Card.Header> {this.props.name} </Card.Header>
     <Card.Meta>{this.props.category}</Card.Meta>

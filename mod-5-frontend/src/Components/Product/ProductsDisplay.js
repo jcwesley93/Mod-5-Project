@@ -15,7 +15,10 @@ class ProductsDisplay extends React.Component{
                image={prod.image}
                description={prod.description}
                id={prod.id}
-               category={prod.category}/>
+               category={prod.category}
+               brand={prod.brand}
+               sold_at={prod.sold_at}
+               price={prod.price}/>
           </div> 
         )}
         </Grid>
@@ -30,7 +33,10 @@ class ProductsDisplay extends React.Component{
           image={prod.image}
           description={prod.description}
           id={prod.id}
-          category={prod.category} />
+          category={prod.category}
+          brand={prod.brand}
+          sold_at={prod.sold_at}
+          price={prod.price} />
         </div>)}
         </Grid>
       </div>

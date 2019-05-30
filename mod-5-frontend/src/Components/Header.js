@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 import { connect } from 'react-redux'
 
-import { Menu } from 'semantic-ui-react'
+import { Menu, Header, Container } from 'semantic-ui-react'
 import { toggleLoggedIn, setCurrentUser } from '../Redux/actions';
 
-class Header extends React.Component{
+class HeaderComp extends React.Component{
 
 
 handleLogOut = () => {
@@ -17,8 +17,11 @@ handleLogOut = () => {
 
 
   render(){
-    return(<div> 
-  <h1> Mod 5 Project </h1>
+    return(<div>
+  <Container textAlign='center'>
+  <Header size='huge'> I Don't Have A Name </Header>
+  <Header size='medium'> Let's all be glad the project is even done. </Header>
+  </Container>
   <Menu pointing secondary>
     <Menu.Item><Link to={'/home'}> Home </Link></Menu.Item>
     <Menu.Item><Link to={'/products'}> Products </Link></Menu.Item>
@@ -48,4 +51,4 @@ const mapDispatchToProps = (dispatch) => {
   
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Header)
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderComp)

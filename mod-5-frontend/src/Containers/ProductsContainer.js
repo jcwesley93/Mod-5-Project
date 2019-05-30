@@ -68,6 +68,8 @@ class ProductsContainer extends React.Component{
   
   render(){
     return(<div>
+      <br/>
+      <br/>
       <ProductFilter handleCategoryChange={this.handleCategoryChange} />
       <br/>
       <br/>

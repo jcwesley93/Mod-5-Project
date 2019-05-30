@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './Components/Header'
 
 import Home from './Components/Home'
 import Login from "./Components/Login"
@@ -16,15 +17,9 @@ import { Route, Switch, Link } from 'react-router-dom'
 
 function App() {
   return (<div className="App">
-  <h1> Mod 5 Project </h1>
-  {/* <Link to={'/home'}> HOME </Link> */}
-  <Link to={'/products'}> VIEW ALL PRODUCTS </Link>
-  <Link to={'/login'}> LOGIN </Link>
-  {/* <Link to={'/signup'}> SIGNUP </Link> */}
-  <Link to={'/dashboard'}> Dashboard </Link>
-  <br/>
-  <br/>
-  
+    <Header />
+
+
   
 
   <Switch> 

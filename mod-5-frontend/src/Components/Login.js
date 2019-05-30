@@ -2,6 +2,7 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { setCurrentUser, setMakeupBags, setShoppingLists} from "../Redux/actions"
+import { Link } from 'react-router-dom'
 
 import loginHeader from "../Images/loginHeader.jpg"
 
@@ -62,7 +63,7 @@ class Login extends React.Component {
             </Segment>
           </Form>
           <Message>
-            New here? Link to sign up
+            New here? <Link to='/signup'> Sign Up </Link>
           </Message>
           </Grid.Column>
           </Grid>

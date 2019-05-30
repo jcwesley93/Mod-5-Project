@@ -4,7 +4,7 @@ import EditShoppingListForm from "./EditShoppingListForm"
 
 import { connect } from 'react-redux'
 import {setSelectedShoppingList, removeShoppingList} from "../../Redux/actions"
-import ProductCard from '../ProductCard';
+import ProductCard from '../Product/ProductCard';
 
 
 class ShoppingListView extends React.Component{

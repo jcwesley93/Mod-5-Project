@@ -39,7 +39,6 @@ class Dashboard extends React.Component{
       <h3>{this.props.currentUser.status} </h3>
       <div> 
         <p>{this.props.currentUser.email} </p>
-        <p>{this.props.currentUser.address}, {this.props.currentUser.city}, {this.props.currentUser.state} {this.props.currentUser.zipcode}</p>
       </div>
     <div> 
     <h2> Shopping Lists </h2>

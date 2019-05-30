@@ -1,4 +1,5 @@
 const initialState = {
+ loggedIn: false,
  currentUser: {},
  makeupBags: [], 
  shoppingLists: [],
@@ -57,6 +58,10 @@ const reducer = (state = initialState, action) => {
         makeupBags: state.makeupBags.filter(list => {
           return list.id !== action.payload.id
         })}
+      }
+
+      case('TOGGLE_LOGGED_IN'):{
+        return{...state, loggedIn: !state.loggedIn}
       }
 
       default:

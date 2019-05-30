@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-    skip_before_action  :authorized, only: [:create, :show]
+    # skip_before_action  :authorized, only: [:create, :show]
     
     def show
         @user = User.find(params[:id])
@@ -29,6 +29,6 @@ class Api::V1::UsersController < ApplicationController
     
     private
     def user_params
-        params.require(:user).permit(:name, :email, :password, :username, :avatar_image, :status, :address, :city, :state, :zipcode, :birthday, :favorite_beauty_brands)
+        params.require(:user).permit(:name, :email, :password_digest, :username, :avatar_image, :status, :address, :city, :state, :zipcode, :birthday, :favorite_beauty_brands)
     end
 end

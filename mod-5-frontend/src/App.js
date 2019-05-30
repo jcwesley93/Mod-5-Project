@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Components/Header'
+import HeaderComp from './Components/Header'
 
 import Home from './Components/Home'
 import Login from "./Components/Login"
@@ -37,7 +37,7 @@ class App extends React.Component {
 
   render(){
   return (<div className="App">
-  <Header />
+  <HeaderComp />
   <Switch> 
     <Route exact path="/" component={Home} />
     <Route exact path="/home" component={Home} />

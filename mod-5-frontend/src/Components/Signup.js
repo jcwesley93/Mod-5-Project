@@ -42,7 +42,7 @@ class Signup extends React.Component{
             name: this.state.name, 
             email: this.state.email, 
             username: this.state.username, 
-            password_digest: this.state.passwordConfirmation, 
+            password: this.state.passwordConfirmation, 
             avatar_image: this.state.profilePhoto, 
             birthday: this.state.birthday, 
             favorite_beauty_brands: this.state.favBeautyBrand, 

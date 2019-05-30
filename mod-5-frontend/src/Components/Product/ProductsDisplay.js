@@ -26,7 +26,7 @@ class ProductsDisplay extends React.Component{
       )
     } else{
       return(<div> 
-        <Grid>
+        <Grid relaxed>
         {this.props.products.filter(prod => prod.category === this.props.category).map(prod =>
         <div> 
           <ProductCard name={prod.name}

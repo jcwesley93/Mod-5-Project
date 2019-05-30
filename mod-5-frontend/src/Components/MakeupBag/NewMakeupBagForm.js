@@ -2,6 +2,9 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { updateMakeupBags } from "../../Redux/actions"
+import { Link } from 'react-router-dom'
+
+import { Grid, Form, Segment, Header, Button, Label } from 'semantic-ui-react'
 
 class NewMakeupBagForm extends React.Component{
 
@@ -38,13 +41,22 @@ class NewMakeupBagForm extends React.Component{
 
   render(){
     return(<div> 
-      <form onSubmit={this.handleFormSubmission}> 
-        <label> Makeup Bag Name: </label>
-        <input onChange={this.handleInputChange} type="text" name="name" placeholder="Makeup Bag Name"/>
-        <label> Makeup Bag Description: </label>
-        <input onChange={this.handleInputChange} type="text" name="description" placeholder="Makeup Bag Description"/>
-        <input type="submit" value="Submit" name="submit"/>
-      </form>
+      <Grid textAlign='center' style={{height: '50vh'}} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 600}}>
+        <Header size='large'>Create New Makeup Bag </Header>
+      <Form onSubmit={this.handleFormSubmission}> 
+        <Segment stacked>
+        <Label> Makeup Bag Name: </Label>
+        <Form.Input onChange={this.handleInputChange} type="text" name="name" placeholder="Makeup Bag Name"/>
+        <Label> Makeup Bag Description: </Label>
+        <Form.Input onChange={this.handleInputChange} type="text" name="description" placeholder="Makeup Bag Description"/>
+        <Button color='pink' type="submit" value="Submit" name="submit"> Submit </Button>
+      </Segment>
+      </Form>
+      <br/>
+      <Link to={'/dashboard'}><Button> Back To Home </Button></Link>
+      </Grid.Column>
+      </Grid>
       </div>
     )
   }

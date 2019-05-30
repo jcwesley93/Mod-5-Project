@@ -2,6 +2,9 @@ import React from 'react'
 
 import { connect } from 'react-redux'
 import { updateShoppingLists } from "../../Redux/actions"
+import { Link } from 'react-router-dom'
+
+import { Grid, Form, Segment, Header, Button, Label} from 'semantic-ui-react'
 
 class NewShoppingListForm extends React.Component{
 
@@ -37,13 +40,22 @@ class NewShoppingListForm extends React.Component{
 
   render(){
     return(<div>
-      <form onSubmit={this.handleFormSubmission}>
-        <label> Shopping List Name: </label>
-        <input onChange={this.handleInputChange} type="text" name="name" placeholder="Shopping List Name"/>
-        <label> Shopping List Description: </label>
-        <input onChange={this.handleInputChange} type="text" name="description" placeholder="Shopping List Description"/>
-        <input type="submit" value="Submit" name="submit" />
-      </form>
+      <Grid textAlign='center' style={{height: '50vh'}} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 600}}>
+        <Header size='large'>Create A New Shopping List</Header>
+      <Form onSubmit={this.handleFormSubmission}>
+        <Segment stacked>
+        <Label> Shopping List Name: </Label>
+        <Form.Input onChange={this.handleInputChange} type="text" name="name" placeholder="Shopping List Name"/>
+        <Label> Shopping List Description: </Label>
+        <Form.Input onChange={this.handleInputChange} type="text" name="description" placeholder="Shopping List Description"/>
+        <Button color='pink' type="submit" value="Submit" name="submit"> Submit</Button>
+        </Segment>
+      </Form>
+      <br/>
+        <Link to={'/dashboard'}><Button> Back To Home </Button></Link>
+      </Grid.Column>
+    </Grid>
     </div>
     )
   }

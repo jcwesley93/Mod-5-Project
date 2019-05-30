@@ -4,7 +4,7 @@ import { connect} from 'react-redux'
 import { setSelectedShoppingList, setSelectedMakeupBag } from '../Redux/actions'
 import {  Link } from 'react-router-dom'
 
-
+//for styling, make sure you limit the size of the profile photo 
 
 class Dashboard extends React.Component{
 

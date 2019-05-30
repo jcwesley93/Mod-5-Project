@@ -17,3 +17,5 @@ export const updateMakeupBags = (newMakeupBag) => ({type: 'UPDATE_MAKEUP_BAGS', 
 export const removeShoppingList = (deletedShoppingList) => ({type: 'REMOVE_SHOPPING_LIST', payload: deletedShoppingList})
 
 export const removeMakeupBag = (deletedMakeupBag) => ({type:'REMOVE_MAKEUP_BAG', payload: deletedMakeupBag})
+
+export const toggleLoggedIn = (userObject) => ({type: 'TOGGLE_LOGGED_IN', payload: userObject})

@@ -12,16 +12,32 @@ import NewShoppingListForm from './Components/ShoppingList/NewShoppingListForm';
 import NewMakeupBagForm from "./Components/MakeupBag/NewMakeupBagForm"
 
 import { Route, Switch, Link } from 'react-router-dom'
+import { setCurrentUser, toggleLoggedIn } from './Redux/actions';
+import { connect } from 'react-redux'
 
 
 
-function App() {
+class App extends React.Component {
+
+  componentDidMount(){
+    
+    const token = localStorage.getItem("token")
+
+    if (token) {
+      fetch(`http://localhost:3005/api/v1/auto_login`,{
+        headers:{
+          "Authorization": token
+        }
+      })
+      .then(res => res.json())
+      .then(res => this.props.setCurrentUser(res))
+      .then(this.props.toggleLoggedIn())
+    }
+  }
+
+  render(){
   return (<div className="App">
-    <Header />
-
-
-  
-
+  <Header />
   <Switch> 
     <Route exact path="/" component={Home} />
     <Route exact path="/home" component={Home} />
@@ -36,6 +52,12 @@ function App() {
   </Switch>
   </div>
   );
-}
+}}
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  return{
+    setCurrentUser: (userObject) => dispatch(setCurrentUser(userObject)), 
+    toggleLoggedIn: (userObject) => dispatch(toggleLoggedIn(userObject))
+  }
+}
+export default connect(null, mapDispatchToProps)(App);

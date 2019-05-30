@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { setCurrentUser, setMakeupBags, setShoppingLists} from "../Redux/actions"
+import { setCurrentUser, setMakeupBags, setShoppingLists, toggleLoggedIn} from "../Redux/actions"
 import { Link } from 'react-router-dom'
 
 import loginHeader from "../Images/loginHeader.jpg"
@@ -43,7 +43,8 @@ class Login extends React.Component {
         this.props.setCurrentUser(res.user);
         this.props.setMakeupBags(res.user.makeup_bags);
         this.props.setShoppingLists(res.user.shopping_lists);
-      });
+      })
+      .then(this.props.toggleLoggedIn());
         this.props.history.push("/dashboard")
     }
 
@@ -72,12 +73,23 @@ class Login extends React.Component {
     }
 }
 
+const mapStateToProps = (state) => {
+  return{
+    loggedIn: state.loggedIn
+  }
+}
 
 const mapDispatchToProps = (dispatch) => {
   return{
     setCurrentUser: (userObject) => dispatch(setCurrentUser(userObject)), 
     setMakeupBags: (userMakeupBagObject) => dispatch(setMakeupBags(userMakeupBagObject)), 
-    setShoppingLists: (userShoppingListObject) => dispatch(setShoppingLists(userShoppingListObject))
+    setShoppingLists: (userShoppingListObject) => dispatch(setShoppingLists(userShoppingListObject)), 
+    toggleLoggedIn: (userObject) => dispatch(toggleLoggedIn(userObject))
   }
 }
-export default connect(null, mapDispatchToProps)(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
+
+//on login, send a post request to the backend and recieve the user and a jwt token
+//set the user response as the current user 
+//dispatch an action that sets the loggedIn state to true. 
+//conditionally render the log in button 

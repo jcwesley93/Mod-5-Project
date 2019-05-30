@@ -3,7 +3,7 @@ import React from 'react'
 import signupHeader from '../Images/signupHeader.jpg'
 
 import { connect } from 'react-redux'
-import { setCurrentUser } from '../Redux/actions'
+import { setCurrentUser, toggleLoggedIn } from '../Redux/actions'
 
 import { Grid, Header, Image, Form, Segment, Button, Message, FormInput } from 'semantic-ui-react'
 
@@ -29,6 +29,37 @@ class Signup extends React.Component{
   handleOnSubmit = (event) => {
     event.preventDefault(); 
     console.log(this.state)
+
+    if(this.state.password === this.state.passwordConfirmation){
+      fetch('http://localhost:3005/api/v1/users', {
+        method: 'POST', 
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        }, 
+        body: JSON.stringify({
+          user: {
+            name: this.state.name, 
+            email: this.state.email, 
+            username: this.state.username, 
+            password: this.state.passwordConfirmation, 
+            avatar_image: this.state.profilePhoto, 
+            birthday: this.state.birthday, 
+            favorite_beauty_brands: this.state.favBeautyBrand, 
+            status: "I wake up looking this good, and I wouldn't change it if I could - Queen Bey"
+          }
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        localStorage.setItem("token", res.jwt);
+        this.props.setCurrentUser(res.user);
+      })
+      .then(this.props.loggedIn())
+      .then(this.props.history.push("/dashboard"))
+    } else{
+        alert("The passwords do not match!")
+    }
   }
 
 
@@ -40,7 +71,7 @@ class Signup extends React.Component{
               <Image src={signupHeader} style={{ width: 700, height: 500}}/>
               welcome to the fam. 
             </Header>
-              <Form size="medium" onSubmit={this.handleOnSubmit}textAlign='left' >
+              <Form size="large" onSubmit={this.handleOnSubmit}textalign='left' >
                  <Segment stacked>
                    <Form.Field>
                     <label>Name</label>
@@ -88,8 +119,18 @@ class Signup extends React.Component{
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    setCurrentuser: (userObject) => dispatch(setCurrentUser(userObject))
+    setCurrentUser: (userObject) => dispatch(setCurrentUser(userObject)), 
+    loggedIn: (userObject) => dispatch(toggleLoggedIn(userObject))
   }
 }
 
 export default connect(null, mapDispatchToProps)(Signup)
+
+
+
+//confirm that passwords match 
+//send a post request to create a new user. 
+
+//use the response to set current user
+//toggle the logged in value to true. 
+//send them to the dashboard. 

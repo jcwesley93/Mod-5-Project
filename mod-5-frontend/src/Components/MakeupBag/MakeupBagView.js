@@ -4,7 +4,7 @@ import EditMakeupBagForm from "./EditMakeupBagForm"
 
 import { connect } from 'react-redux'
 import { setSelectedMakeupBag, removeMakeupBag} from "../../Redux/actions"
-import ProductCard from '../Product/ProductCard';
+import DashboardProductCard from '../Product/DashboardProductCard';
 
 class MakeupBagView extends React.Component {
 
@@ -40,7 +40,7 @@ class MakeupBagView extends React.Component {
       <br/>
       <br/>
       {this.props.selectedList.products && this.props.selectedList.products.length > 0 ? 
-      this.props.selectedList.products.map(list => <ProductCard name={list.name} image={list.image}/>) : <p> There are no products in this bag! </p>}
+      this.props.selectedList.products.map(list => <DashboardProductCard name={list.name} image={list.image}/>) : <p> There are no products in this bag! </p>}
     </div>)
   }
 }

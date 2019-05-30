@@ -4,7 +4,7 @@ import EditShoppingListForm from "./EditShoppingListForm"
 
 import { connect } from 'react-redux'
 import {setSelectedShoppingList, removeShoppingList} from "../../Redux/actions"
-import ProductCard from '../Product/ProductCard';
+import DashboardProductCard from '../Product/DashboardProductCard';
 
 
 class ShoppingListView extends React.Component{
@@ -39,7 +39,7 @@ class ShoppingListView extends React.Component{
       <button onClick={this.handleDelete}> Delete Shopping List </button>
       <br/>
       <br/>
-      {this.props.selectedList.products && this.props.selectedList.products.length > 0 ? this.props.selectedList.products.map(list => <ProductCard name={list.name} image={list.image} />) : <p> There are no products on this list! </p>}
+      {this.props.selectedList.products && this.props.selectedList.products.length > 0 ? this.props.selectedList.products.map(list => <DashboardProductCard name={list.name} image={list.image} />) : <p> There are no products on this list! </p>}
     </div>
     )
   }

@@ -18,7 +18,6 @@ class ProductCard extends React.Component{
     this.setState({
       makeupBagClicked: !this.state.makeupBagclicked
     })
-    console.log(this.props.id)
   }
 
   handleSLOnClick = (event) =>{
@@ -28,6 +27,27 @@ class ProductCard extends React.Component{
     })
   }
 
+  handleAddToShoppingList = (event) => {
+    console.log(this.state.selectedBagID, this.props.id)
+    event.preventDefault();
+    fetch('http://localhost:3005/api/v1/shopping_list_products', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json', 
+        'Accept': 'application/json'
+      },
+      body:JSON.stringify({
+        shopping_list_id: this.state.selectedBagID, 
+        product_id: this.props.id
+      })
+    })
+    .then(res => res.json())
+    .then(console.log)
+    this.setState({
+      shoppingListClicked: !this.state.shoppingListClicked
+      
+    })
+  }
   
 
   handleAddToMakeupBag = (event) => {
@@ -58,6 +78,20 @@ class ProductCard extends React.Component{
     })
     console.log(this.state.selectedBagID)
   }
+
+  handleMBCancel = () => {
+    this.setState({
+      makeupBagClicked: !this.state.makeupBagClicked
+    })
+  }
+
+  handleSLCancel = () => {
+    this.setState({
+      shoppingListClicked: !this.state.shoppingListClicked
+    })
+  }
+
+
 render(){
 let cardStyle = {
    margin:'15px'
@@ -70,6 +104,7 @@ let cardStyle = {
     <Card.Header> {this.props.name} </Card.Header>
     <Card.Meta>{this.props.category}</Card.Meta>
     </Card.Content>
+    {/* makeup bag menu */}
     {this.state.makeupBagClicked ? 
     <div>
       <select value={this.state.selectedBagID} onChange={this.handleOnChange}>
@@ -78,11 +113,27 @@ let cardStyle = {
       </select>
       <br/>
       <Button onClick={this.handleAddToMakeupBag}> Add It!</Button>
-      </div>
+      <Button onClick={this.handleMBCancel}> Cancel </Button>
+    </div>
       : <Button value='Makeup Bag' onClick={(event) => this.handleMBOnClick(event) }> Add to Makeup Bag </Button>}
 
+    {/* shopping list menu */}
+    {this.state.shoppingListClicked ? 
+    <div>
+      <select value={this.state.selectedBagID} onChange={this.handleOnChange}>
+        <option value="null"> Select A Shopping List </option>
+        {this.props.shoppingLists.map(list => <option value={list.id}>{list.name}</option> )}
+      </select>
+      <br/>
+      <Button onClick={this.handleAddToShoppingList}> Add it! </Button>
+      <Button onClick={this.handleSLCancel}> Cancel </Button>
 
-    {/* {this.state.shoppingListClicked ? <p> render the dropdown </p> : <button value='Shopping List' onClick={(event) => this.handleSLOnClick(event) }> Add to Shopping List </button>} */}
+
+    </div> : <Button value='Shopping List' onClick={(event) => this.handleSLOnClick(event) }> Add to Shopping List </Button> }
+
+
+
+    
   
   </Card>
   </div>
@@ -94,7 +145,8 @@ let cardStyle = {
 const mapStateToProps = (state) => {
   return{
     user: state.currentUser, 
-    makeupBags: state.makeupBags
+    makeupBags: state.makeupBags,
+    shoppingLists: state.shoppingLists
   }
 }
 

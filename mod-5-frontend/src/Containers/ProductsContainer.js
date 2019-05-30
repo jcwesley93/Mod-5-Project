@@ -1,7 +1,6 @@
 import React from 'react'
-import ProductCard from "../Components/ProductCard"
-import ProductFilter from "../Components/ProductFilter"
-import ProductsDisplay from "../Components/ProductsDisplay"
+import ProductFilter from "../Components/Product/ProductFilter"
+import ProductsDisplay from "../Components/Product/ProductsDisplay"
 
 import { connect } from 'react-redux'
 import { fetchProductData } from '../Redux/actions'

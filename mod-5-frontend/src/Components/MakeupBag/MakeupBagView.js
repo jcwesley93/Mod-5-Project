@@ -4,7 +4,7 @@ import EditMakeupBagForm from "./EditMakeupBagForm"
 
 import { connect } from 'react-redux'
 import { setSelectedMakeupBag, removeMakeupBag} from "../../Redux/actions"
-import ProductCard from '../ProductCard';
+import ProductCard from '../Product/ProductCard';
 
 class MakeupBagView extends React.Component {
 

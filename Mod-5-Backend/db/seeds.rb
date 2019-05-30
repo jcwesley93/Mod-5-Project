@@ -6,13 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 ##### USERS ####
-jaela = User.create(name: "Jaela Wesley", email: "jaela.test", username: "jaelaW", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip, birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
+jaela = User.create(name: "Jaela Wesley", email: "jaela.test", username: "jaelaW", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
 
-jasmine = User.create(name: "jasmine Wesley", email: "jasmine.test", username: "jasmineW", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip, birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
+jasmine = User.create(name: "jasmine Wesley", email: "jasmine.test", username: "jasmineW", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
 
-nyiah = User.create(name: "Nyiah Lance", email: "nyiah.test", username: "nyiahL", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip, birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
+nyiah = User.create(name: "Nyiah Lance", email: "nyiah.test", username: "nyiahL", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
 
-carter = User.create(name: "Carter Lance", email: "carter.test", username: "carterL", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state, zipcode: Faker::Address.zip, birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
+carter = User.create(name: "Carter Lance", email: "carter.test", username: "carterL", password: "12345", avatar_image: Faker::LoremPixel.image("50x60"), status: Faker::Lorem.sentence(5), birthday: "01/01/0000", favorite_beauty_brands: Faker::Lorem.paragraph)
 
 #### Makeup Bags ####
 
